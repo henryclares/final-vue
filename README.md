@@ -1,5 +1,10 @@
 # final-vue
 
+## Contributors
+1.
+2.
+3.
+
 ## Project setup
 ```
 npm install

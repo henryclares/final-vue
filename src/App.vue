@@ -13,5 +13,8 @@ export default {
   data: () => ({
     //
   }),
+  mounted() {
+    this.$router.push('/home');
+  }
 };
 </script>

@@ -1,12 +1,34 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
-import { VAppBar, VIcon, VDataTable } from 'vuetify/lib';
+import {
+  VAppBar,
+  VCard,
+  VIcon,
+  VDataTable,
+  VForm,
+  VDivider,
+  VCol,
+  VContainer,
+  VTextField,
+  VCardTitle,
+  VCardSubtitle,
+  VTooltip,
+} from 'vuetify/lib';
 
 Vue.use(Vuetify, {
   components: {
     VAppBar,
+    VCard,
     VIcon,
     VDataTable,
+    VForm,
+    VDivider,
+    VCol,
+    VContainer,
+    VTextField,
+    VCardTitle,
+    VCardSubtitle,
+    VTooltip,
   },
 });
 // module.exports = {

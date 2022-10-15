@@ -1,20 +1,45 @@
 <template>
-  <v-card class="product" style="margin: 20px 20px 20px 20px">
-    <h1>Products List</h1>
+  <v-card class="producto" elevation="0" style="margin: 20px 20px 20px 20px">
+    <h1>Category List</h1>
     <v-spacer></v-spacer>
     <v-divider></v-divider>
-    <v-table :headers="headers" :items="desserts"></v-table>
+    <v-table :headers="headers" :items="url">
+      <!-- <template slot="items" slot-scope="items.ACTIONS">
+        <td>
+          <v-tooltip bottom color="primary">
+            <template v-slot:activator="{ on }">
+              <v-btn
+                icon
+                v-on="on"
+                :color="'success'"
+                @click.prevent="edit(items)"
+              >
+                <v-icon-component icon="edit" />
+              </v-btn>
+            </template>
+            <span>{{ 'Editar' }}</span>
+          </v-tooltip>
+        </td>
+      </template> -->
+    </v-table>
   </v-card>
 </template>
+
 <script>
 import VTable from '../components/TableList.vue';
-
 export default {
-  name: 'ProductS',
+  name: 'ProductoS',
   components: { VTable },
   data() {
     return {
       headers: [
+        // {
+        //   text: 'Acciones',
+        //   divider: false,
+        //   sortable: false,
+        //   align: 'center',
+        //   value: 'ACTIONS',
+        // },
         {
           text: 'Dessert (100g serving)',
           align: 'start',
@@ -110,6 +135,9 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    editar() {},
   },
 };
 </script>

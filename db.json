@@ -1,0 +1,143 @@
+{
+  "areas": [
+    {
+      "id": 1,
+      "name": "FINANZAS",
+      "encargado": "Jose Linares",
+      "cantidadFuncionarios": 4
+    },
+    {
+      "name": "FINANZAS",
+      "encargado": "Pepe Lopez",
+      "cantidadFuncionarios": 3,
+      "id": 2
+    },
+    {
+      "name": "CONTABILIDAD",
+      "encargado": "JOSE PEREZ",
+      "cantidadFuncionarios": "6",
+      "id": 3
+    },
+    {
+      "name": "ADMINISTRATIVA",
+      "encargado": "CHRIS",
+      "cantidadFuncionarios": "10",
+      "id": 4
+    },
+    {
+      "name": "AREA 1",
+      "encargado": "ENEMY",
+      "cantidadFuncionarios": "1",
+      "id": 5
+    },
+    {
+      "name": "ASD",
+      "encargado": "ASD",
+      "cantidadFuncionarios": "3",
+      "id": 6
+    },
+    {
+      "name": "asdasd",
+      "encargado": "dasdasd",
+      "cantidadFuncionarios": "3",
+      "id": 7
+    },
+    {
+      "name": "eee",
+      "encargado": "wwww",
+      "cantidadFuncionarios": "2",
+      "id": 8
+    },
+    {
+      "name": "dddd",
+      "encargado": "fffff",
+      "cantidadFuncionarios": "3",
+      "id": 9
+    },
+    {
+      "name": "ee",
+      "encargado": "e",
+      "cantidadFuncionarios": "22",
+      "id": 10
+    },
+    {
+      "name": "ee",
+      "encargado": "es",
+      "cantidadFuncionarios": "22",
+      "id": 11
+    },
+    {
+      "name": "aa",
+      "encargado": "bb",
+      "cantidadFuncionarios": "3",
+      "id": 12
+    },
+    {
+      "name": "eeeeeee",
+      "encargado": "2222222",
+      "cantidadFuncionarios": "3",
+      "id": 13
+    },
+    {
+      "name": "xxz",
+      "encargado": "2222222",
+      "cantidadFuncionarios": "3",
+      "id": 14
+    },
+    {
+      "name": "hola",
+      "encargado": "prueba",
+      "cantidadFuncionarios": "123",
+      "id": 15
+    },
+    {
+      "name": "donde",
+      "encargado": "pvtas",
+      "cantidadFuncionarios": "3",
+      "id": 16
+    },
+    {
+      "name": "asd",
+      "encargado": "asd",
+      "cantidadFuncionarios": "9",
+      "id": 17
+    },
+    {
+      "name": "x",
+      "encargado": "xx",
+      "cantidadFuncionarios": "3",
+      "id": 18
+    }
+  ],
+  "tipos": [
+    {
+      "id": 1,
+      "name": "Computadora"
+    }
+  ],
+  "activos": [
+    {
+      "marca": "HP",
+      "modelo": "PAVILLION 360",
+      "estado": "USADO",
+      "idArea": 1,
+      "tipo": "COMPUTADORA",
+      "id": 1
+    },
+    {
+      "marca": "APPLE",
+      "modelo": "MACBOOK",
+      "estado": "USADO",
+      "idArea": 4,
+      "tipo": "LAPTOP",
+      "id": 2
+    }
+  ],
+  "personas": [
+    {
+      "id": 1,
+      "nombre": "José Linares",
+      "estado": "ACTIVO"
+    }
+  ]
+}

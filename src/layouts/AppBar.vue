@@ -11,18 +11,25 @@
             v-model="group"
             active-class="deep-purple--text text--accent-4"
           >
-            <v-list-item @click="redirect('products')">
+            <v-list-item @click="redirect('activos')">
               <v-list-item-icon>
                 <v-icon>mdi-clipboard-text-search</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>PRODUCTS</v-list-item-title>
+              <v-list-item-title>ACTIVOS</v-list-item-title>
             </v-list-item>
 
-            <v-list-item @click="redirect('category')">
+            <!-- <v-list-item @click="redirect('productos')">
               <v-list-item-icon>
                 <v-icon>mdi-text-box-edit-outline</v-icon>
               </v-list-item-icon>
-              <v-list-item-title>CATEGORY</v-list-item-title>
+              <v-list-item-title>Productos</v-list-item-title>
+            </v-list-item> -->
+
+            <v-list-item @click="redirect('areas')">
+              <v-list-item-icon>
+                <v-icon>mdi-text-box-edit-outline</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>REGISTRO DE ÁREAS</v-list-item-title>
             </v-list-item>
           </v-list-item-group>
         </v-list>
@@ -41,7 +48,11 @@ export default {
   }),
   methods: {
     redirect(path) {
-      this.$router.push('/' + path);
+      const location = window.location.pathname;
+      const newPath = '/' + path;
+      if (location !== newPath) {
+        this.$router.push(newPath);
+      }
     },
   },
 };

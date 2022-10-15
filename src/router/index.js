@@ -1,23 +1,30 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Category from '../views/Category.vue';
+import Producto from '../views/Producto.vue';
+// import Area from '../views/Area.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/category',
-    name: 'category',
-    component: Category,
+    path: '/productos',
+    name: 'prodcutos',
+    component: Producto,
   },
   {
-    path: '/products',
-    name: 'products',
+    path: '/activos',
+    name: 'activos',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/Products.vue'),
+      import(/* webpackChunkName: "about" */ '../views/Activos.vue'),
+  },
+  {
+    path: '/areas',
+    name: 'areas',
+    // component: Area,
+    component: () => import('../views/Area.vue'),
   },
 ];
 
