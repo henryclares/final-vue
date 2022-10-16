@@ -3,7 +3,7 @@
     <v-card class="" elevation="0" style="">
       <v-app-bar color="deep-purple" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-        <v-toolbar-title>FINAL PROJECT</v-toolbar-title>
+        <v-toolbar-title>F & F - SISTEMA DE INVENTARIO</v-toolbar-title>
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" absolute temporary>
         <v-list nav dense>

@@ -1,7 +1,9 @@
 <template>
   <v-card class="product" style="margin: 20px 20px 20px 20px" elevation="0">
     <v-container>
-      <h1>REGISTRO DE ACTIVOS</h1>
+      <v-card elevation="0" class="subtitle font-weight-regular pl-4 fs12">
+        REGISTRO DE ACTIVOS
+      </v-card>
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-card class="pa-4" outlined rounded>
           <v-row>
@@ -77,7 +79,36 @@
       </v-form>
     </v-container>
     <v-container>
-      <h2>LISTA DE ACTIVOS</h2>
+      <v-card elevation="0" class="subtitle font-weight-regular pl-4 fs12">
+        LISTA DE ACTIVOS
+      </v-card>
+      <!-- <v-card class="pa-4" outlined rounded>
+        <v-row>
+          <v-col cols="12" md="4" xs="12" sm="4" lg="4">
+            <strong>Tipo de Producto</strong>
+            <v-text-field
+              v-model="filtro.tipo"
+              @input="filtroTipo"
+              class="mr-2"
+              dense
+              required
+              outlined
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="4" xs="12" sm="4" lg="4">
+            <strong>Estado</strong>
+            <v-autocomplete
+              v-model="filtro.estado"
+              :items="estados"
+              @input="filtroEstado"
+              :rules="rules.text"
+              item-text="estado"
+              outlined
+              dense
+            ></v-autocomplete>
+          </v-col>
+        </v-row>
+      </v-card> -->
       <v-card class="pa-4" outlined rounded>
         <v-skeleton-loader
           :loading="loading"
@@ -99,7 +130,34 @@
               itemsPerPageAllText: 'todos',
               itemsPerPageText: 'Filas por página',
             }"
+            :search="search"
+            :custom-filter="filter"
           >
+            <template v-slot:top>
+              <v-row>
+                <v-col cols="12" md="4" xs="12" sm="4" lg="4">
+                  <v-text-field
+                    v-model="search"
+                    label="Buscar por Tipo"
+                    class="mx-4"
+                    outlined
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="4" xs="12" sm="4" lg="4">
+                  <v-autocomplete
+                    v-model="filtro.estado"
+                    label="Buscar por Estado"
+                    :items="estados"
+                    item-text="estado"
+                    outlined
+                    dense
+                    clearable
+                  ></v-autocomplete>
+                </v-col>
+              </v-row>
+            </template>
           </v-data-table>
           <template v-slot:[`item.ACTIONS`]="{ item }">
             <slot name="actions" :props="item"></slot>
@@ -113,6 +171,7 @@
   </v-card>
 </template>
 <script>
+/* eslint-disable */
 // import VTable from '../components/TableList.vue';
 import table from './mixins/table';
 
@@ -122,6 +181,7 @@ export default {
   mixins: [table],
   data() {
     return {
+      search: '',
       valid: false,
       headers: [
         {
@@ -153,6 +213,11 @@ export default {
           align: 'center',
           sortable: false,
           value: 'estado',
+          filter: (value) => {
+            if (!this.filtro.estado) return true;
+
+            return value === this.filtro.estado;
+          },
         },
         {
           text: 'Area',
@@ -182,11 +247,13 @@ export default {
       items: [],
       custom: false,
       loading: false,
+      filtro: {
+        tipo: '',
+        estado: '',
+      },
     };
   },
   mounted() {
-    // this.updateList();
-    // this.listarAreas();
     this.$nextTick(() => {
       try {
         this.listar();
@@ -242,6 +309,17 @@ export default {
         return this.$message.success('Registro Exitoso');
       }
       this.$message.warning('Ocurrio un error intentelo nuevamente.');
+    },
+    filter(value, search, item) {
+      return (
+        value != null &&
+        search != null &&
+        typeof value === 'string' &&
+        value
+          .toString()
+          .toLocaleUpperCase()
+          .indexOf(search.toLocaleUpperCase()) !== -1
+      );
     },
   },
 };
