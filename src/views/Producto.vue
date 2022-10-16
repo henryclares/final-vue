@@ -3,7 +3,7 @@
     <h1>Category List</h1>
     <v-spacer></v-spacer>
     <v-divider></v-divider>
-    <v-table :headers="headers" :items="url">
+    <!-- <v-table :headers="headers" :items="url"> -->
       <!-- <template slot="items" slot-scope="items.ACTIONS">
         <td>
           <v-tooltip bottom color="primary">
@@ -21,15 +21,15 @@
           </v-tooltip>
         </td>
       </template> -->
-    </v-table>
+    <!-- </v-table> -->
   </v-card>
 </template>
 
 <script>
-import VTable from '../components/TableList.vue';
+// import VTable from '../components/TableList.vue';
 export default {
   name: 'ProductoS',
-  components: { VTable },
+  // components: { VTable },
   data() {
     return {
       headers: [

@@ -79,18 +79,46 @@
     <v-container>
       <h2>LISTA DE ACTIVOS</h2>
       <v-card class="pa-4" outlined rounded>
-        <v-table :headers="headers" :url="url"></v-table>
+        <v-skeleton-loader
+          :loading="loading"
+          transition="fade-transition"
+          type="table"
+        >
+          <v-data-table
+            ref="table"
+            :headers="getHeaders"
+            :items="items"
+            :items-per-page="5"
+            :loading="loading"
+            loading-text="Cargando registros..."
+            rowsPerPageText="filas por pagina"
+            no-results-text="No se encontraron registros que coincidan"
+            :mobile-breakpoint="600"
+            :footer-props="{
+              itemsPerPageOptions: [5, 10, 20, 50],
+              itemsPerPageAllText: 'todos',
+              itemsPerPageText: 'Filas por página',
+            }"
+          >
+          </v-data-table>
+          <template v-slot:[`item.ACTIONS`]="{ item }">
+            <slot name="actions" :props="item"></slot>
+          </template>
+          <template v-slot:item="{ item }" v-if="custom">
+            <slot name="items" :items="item"></slot>
+          </template>
+        </v-skeleton-loader>
       </v-card>
     </v-container>
   </v-card>
 </template>
 <script>
-import VTable from '../components/TableList.vue';
-import table from '../components/mixins/table';
+// import VTable from '../components/TableList.vue';
+import table from './mixins/table';
 
 export default {
   name: 'ActivosS',
-  components: { VTable },
+  // components: { VTable },
   mixins: [table],
   data() {
     return {
@@ -150,11 +178,32 @@ export default {
         ],
       },
       estados: ['NUEVO', 'USADO', 'DESUSO'],
+      table: 'table',
+      items: [],
+      custom: false,
+      loading: false,
     };
   },
   mounted() {
-    this.updateList();
-    this.listarAreas();
+    // this.updateList();
+    // this.listarAreas();
+    this.$nextTick(() => {
+      try {
+        this.listar();
+      } catch (error) {
+        this.$message.error(error.message ?? 'Ocurrio un error');
+      }
+    });
+  },
+  computed: {
+    getHeaders() {
+      const items = [];
+      this.headers.map((el) => {
+        el.align = 'left';
+        items.push(el);
+      });
+      return items;
+    },
   },
   methods: {
     async listarAreas() {
@@ -164,6 +213,13 @@ export default {
           this.areas = data;
         })
         .catch((err) => this.$message.error(err));
+    },
+    async listar() {
+      // console.log('LIST');
+      const data = await this.list(this.url);
+      if (data) {
+        return (this.items = data);
+      }
     },
     async registrarActivo() {
       const { marca, modelo, estado, idArea, tipo } = this.form;
@@ -181,7 +237,7 @@ export default {
       };
       const respuesta = this.register(this.url, data);
       if (respuesta) {
-        this.updateList();
+        this.listar();
         this.form = { estado: 'NUEVO' };
         return this.$message.success('Registro Exitoso');
       }

@@ -107,6 +107,30 @@
       "encargado": "xx",
       "cantidadFuncionarios": "3",
       "id": 18
+    },
+    {
+      "name": "DDDDD",
+      "encargado": "EEEEE",
+      "cantidadFuncionarios": "23213123123",
+      "id": 19
+    },
+    {
+      "name": "EEEEEE",
+      "encargado": "QWEQWEQWE",
+      "cantidadFuncionarios": "31312312321",
+      "id": 20
+    },
+    {
+      "name": "DDDD",
+      "encargado": "EEQWEQWE",
+      "cantidadFuncionarios": "2",
+      "id": 21
+    },
+    {
+      "name": "E",
+      "encargado": "W",
+      "cantidadFuncionarios": "1",
+      "id": 22
     }
   ],
   "tipos": [
