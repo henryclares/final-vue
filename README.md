@@ -23,6 +23,7 @@ Registro de activos:
 Filtro de busqueda por Tipo y Estado en lista de Activos
 
 ## Contributors
+
 1. Henry Clares Flores
 2. Luis Ricardo Rivas Giwencer
 3. David Samuel Rios Nuñez
